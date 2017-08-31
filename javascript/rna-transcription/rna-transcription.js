@@ -3,14 +3,25 @@ var DnaTranscriber = function(dna) {
 };
 
 DnaTranscriber.prototype.toRna = function() {
-  
-  for (var i = 0; i < this.dna.length; i++) {
-    console.log(this.dna.charAt[i]);
-    // switch ()
-    // this.dna.length
+  let dna = this.dna.split('');
+  for (var i = 0; i < dna.length; i++) {
+    switch(dna[i]) {
+      case 'G':
+        dna[i] = 'C';
+        break;
+      case 'C':
+        dna[i] = 'G';
+        break;
+      case 'T':
+        dna[i] = 'A';
+        break;
+      case 'A':
+        dna[i] = 'U';
+        break;
+    }
   }
+  return dna.join('');
 };
 
-var dna = new DnaTranscriber('RNKL');
-console.log(dna);
+var dna = new DnaTranscriber('GCTA');
 dna.toRna();
