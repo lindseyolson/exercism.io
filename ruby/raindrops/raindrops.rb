@@ -2,7 +2,8 @@ class Raindrops
   def self.convert(num)
     drops = {3=>'Pling', 5=>'Plang', 7=>'Plong'}
     output = drops.select{ |key, value| (num % key).zero? }.values.join
-    output.empty? && num.to_s || output
+    output = num.to_s if output.empty?
+    output
   end
 end
 
